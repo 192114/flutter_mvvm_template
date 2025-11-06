@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
 
-import '../presentation/auth/login_page.dart';
-import '../presentation/home/home_page.dart';
+import '../presentation/auth/view/login_page.dart';
+import '../presentation/home/view/home_page.dart';
 
 /// 路由路径常量
 class AppRoutes {
