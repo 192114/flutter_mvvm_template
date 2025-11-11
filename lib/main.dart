@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'app/app.dart';
 
 void main() {
@@ -7,5 +8,5 @@ void main() {
   // 因为di.init 是异步操作 所以需要 调用该方法
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(const MainApp());
+  runApp(const ProviderScope(child: MainApp()));
 }
