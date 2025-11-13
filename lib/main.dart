@@ -11,8 +11,10 @@ void main() async {
   // 因为di.init 是异步操作 所以需要 调用该方法
   WidgetsFlutterBinding.ensureInitialized();
 
-  // 默认开发环境
-  EnvConfig.setEnvironment(Environment.dev);
+  // 打印当前环境配置（仅在开发环境）
+  if (EnvConfig.isDevelopment) {
+    EnvConfig.printConfig();
+  }
 
   // 初始化 SharedPreferences 因为是异步的 需在初始化后 注入
   final sharedPreferences = await SharedPreferences.getInstance();
