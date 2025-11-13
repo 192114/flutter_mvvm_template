@@ -13,14 +13,18 @@ final dioProvider = Provider<Dio>((ref) {
       responseType: ResponseType.json,
     ),
   );
-  dio.interceptors.add(
-    PrettyDioLogger(
-      requestHeader: true,
-      requestBody: true,
-      responseBody: true,
-      responseHeader: false,
-    ),
-  );
+
+  dio.interceptors.addAll([
+    if (!EnvConfig.isProduction)
+      PrettyDioLogger(
+        requestHeader: true,
+        requestBody: true,
+        responseBody: true,
+        responseHeader: false,
+      ),
+    ErrorInterceptor(),
+  ]);
+
   return dio;
 });
 
