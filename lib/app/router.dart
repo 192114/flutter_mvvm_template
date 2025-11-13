@@ -1,7 +1,9 @@
 import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../presentation/auth/view/login_page.dart';
 import '../presentation/home/view/home_page.dart';
+import '../core/storage/token_storage.dart';
 
 /// 路由路径常量
 class AppRoutes {
@@ -12,11 +14,24 @@ class AppRoutes {
 }
 
 /// 应用路由配置
-class AppRouter {
-  AppRouter._();
+final routerProvider = Provider((ref) {
+  final tokenStorage = ref.watch(tokenStorageProvider);
+  return GoRouter(
+    initialLocation: tokenStorage.hasToken ? AppRoutes.home : AppRoutes.login,
+    redirect: (context, state) {
+      final isLoggedIn = tokenStorage.hasToken; // 有token 
+      final isLoggingIn = state.matchedLocation == AppRoutes.login; // 处于登录页面
 
-  static final GoRouter router = GoRouter(
-    initialLocation: AppRoutes.login,
+      if (!isLoggingIn && !isLoggedIn) {
+        return AppRoutes.login;
+      }
+
+      if (isLoggedIn && isLoggingIn) {
+        return AppRoutes.home;
+      }
+
+      return null;
+    },
     routes: [
       GoRoute(
         path: AppRoutes.login,
@@ -28,4 +43,5 @@ class AppRouter {
       ),
     ],
   );
-}
+});
+

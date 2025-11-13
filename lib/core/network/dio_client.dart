@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_mvvm_template/core/storage/token_storage.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import '../config/env.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -14,7 +15,10 @@ final dioProvider = Provider<Dio>((ref) {
     ),
   );
 
+  final tokenStorage = ref.watch(tokenStorageProvider);
+
   dio.interceptors.addAll([
+    TokenInterceptor(tokenStorage),
     if (!EnvConfig.isProduction)
       PrettyDioLogger(
         requestHeader: true,
@@ -67,5 +71,23 @@ class ErrorInterceptor extends Interceptor {
     }
 
     handler.reject(err.copyWith(error: exception));
+  }
+}
+
+/// token的拦截器
+class TokenInterceptor extends Interceptor {
+  final TokenStorage tokenStorage;
+
+  const TokenInterceptor(this.tokenStorage);
+
+  @override
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    final token = tokenStorage.accessToken;
+
+    if (token != null) {
+      options.headers['Authorization'] = 'Bearer $token';
+    }
+
+    handler.next(options);
   }
 }
