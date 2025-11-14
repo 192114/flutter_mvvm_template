@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../provider/shared_preferences_provider.dart';
 
 class TokenStorage {
   static const _keyAccessToken = 'access_token';
@@ -24,10 +25,6 @@ class TokenStorage {
 
   bool get hasToken => accessToken != null;
 }
-
-final sharedPreferencesProvider = Provider<SharedPreferences>((ref) {
-  throw UnimplementedError('需要在 main.dart 中初始化');
-});
 
 final tokenStorageProvider = Provider<TokenStorage>((ref) {
   final prefs = ref.watch(sharedPreferencesProvider);
