@@ -3,10 +3,7 @@ import '../../../data/repositories/user_repository_impl.dart';
 import '../../../data/models/user_model.dart';
 
 // 可创建多个独立的provider
-final usersProvider =
-    AsyncNotifierProvider<UsersNotifier, List<UserModel>>(() {
-      return UsersNotifier();
-    });
+final usersProvider = AsyncNotifierProvider<UsersNotifier, List<UserModel>>(UsersNotifier.new);
 
 class UsersNotifier extends AsyncNotifier<List<UserModel>> {
   @override
