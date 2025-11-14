@@ -9,8 +9,8 @@ final dioProvider = Provider<Dio>((ref) {
   final dio = Dio(
     BaseOptions(
       baseUrl: EnvConfig.baseUrl,
-      connectTimeout: Duration(milliseconds: EnvConfig.connectTimeout),
-      receiveTimeout: Duration(milliseconds: EnvConfig.receiveTimeout),
+      connectTimeout: const Duration(milliseconds: EnvConfig.connectTimeout),
+      receiveTimeout: const Duration(milliseconds: EnvConfig.receiveTimeout),
       responseType: ResponseType.json,
     ),
   );
@@ -64,7 +64,7 @@ class ErrorInterceptor extends Interceptor {
         }
         break;
       case DioExceptionType.cancel:
-        exception = AppException('请求已取消');
+        exception = const AppException('请求已取消');
         break;
       default:
         exception = AppException('未知错误: ${err.message}');

@@ -25,7 +25,7 @@ void main() async {
         sharedPreferencesProvider.overrideWithValue(sharedPreferences),
       ],
 
-      child: MainApp(),
+      child: const MainApp(),
     ),
   );
 }
