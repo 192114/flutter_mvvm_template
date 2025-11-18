@@ -12,6 +12,15 @@
       ]
     },
     {
+      "name": "Mock",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": [
+        "--dart-define=ENVIRONMENT=mock"
+      ]
+    },
+    {
       "name": "Production",
       "request": "launch",
       "type": "dart",

@@ -12,22 +12,24 @@ class LoginPage extends ConsumerWidget {
     final themeNotifier = ref.read(themeModeProvider.notifier);
     final currentTheme = ref.watch(themeModeProvider);
     return Scaffold(
-      body: Column(
-        children: [
-          ElevatedButton(
-            onPressed: () {
-              context.push(AppRoutes.home);
-            },
-            child: const Text('登录'),
-          ),
-          OutlinedButton(
-            onPressed: () {
-              themeNotifier.toggleTheme();
-            },
-            child: const Text('切换主题'),
-          ),
-          Text(currentTheme.toString())
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                context.push(AppRoutes.home);
+              },
+              child: const Text('登录'),
+            ),
+            OutlinedButton(
+              onPressed: () {
+                themeNotifier.toggleTheme();
+              },
+              child: const Text('切换主题'),
+            ),
+            Text(currentTheme.toString()),
+          ],
+        ),
       ),
     );
   }

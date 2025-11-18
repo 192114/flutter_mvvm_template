@@ -1,8 +1,9 @@
 import '../utils/logger.dart';
 
+/// mock: Mock环境用于本地开发和测试
 /// dev: 开发环境
 /// prod: 生产环境
-enum Environment { dev, prod }
+enum Environment { mock, dev, prod }
 
 class EnvConfig {
   // 从编译参数读取环境变量
@@ -13,6 +14,8 @@ class EnvConfig {
 
   static Environment get currentEnv {
     switch (_envString) {
+      case 'mock':
+        return Environment.mock;
       case 'prod':
       case 'production':
         return Environment.prod;
@@ -25,6 +28,8 @@ class EnvConfig {
 
   static String get baseUrl {
     switch (currentEnv) {
+      case Environment.mock:
+        return 'mock://local';
       case Environment.dev:
         return const String.fromEnvironment(
           'BASE_URL',
@@ -50,6 +55,7 @@ class EnvConfig {
 
   static bool get isProduction => currentEnv == Environment.prod;
   static bool get isDevelopment => currentEnv == Environment.dev;
+  static bool get isMock => currentEnv == Environment.mock;
 
   // 调试信息
   static void printConfig() {

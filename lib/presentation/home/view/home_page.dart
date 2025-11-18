@@ -18,6 +18,7 @@ class HomePage extends ConsumerWidget {
             AsyncData(:final value) => ListView.builder(
               itemBuilder: (context, index) =>
                   ListTile(title: Text(value[index].name)),
+                  itemCount: value.length,
             ),
             AsyncLoading() => const Center(child: Text('loading')),
             AsyncError(:final error) => Center(child: Text('Error: $error')),
