@@ -12,24 +12,30 @@ class HomePage extends ConsumerWidget {
     final usersState = ref.watch(usersProvider);
     final themeNotifier = ref.read(themeModeProvider.notifier);
     return Scaffold(
-      body: Column(
-        children: [
-          switch (usersState) {
-            AsyncData(:final value) => ListView.builder(
-              itemBuilder: (context, index) =>
-                  ListTile(title: Text(value[index].name)),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: switch (usersState) {
+                AsyncData(:final value) => ListView.builder(
+                  itemBuilder: (context, index) =>
+                      ListTile(title: Text(value[index].name)),
                   itemCount: value.length,
+                ),
+                AsyncLoading() => const Center(child: Text('loading')),
+                AsyncError(:final error) => Center(
+                  child: Text('Error: $error'),
+                ),
+              },
             ),
-            AsyncLoading() => const Center(child: Text('loading')),
-            AsyncError(:final error) => Center(child: Text('Error: $error')),
-          },
-          ElevatedButton(
-            onPressed: () {
-              themeNotifier.toggleTheme();
-            },
-            child: const Text('切换主题'),
-          ),
-        ],
+            ElevatedButton(
+              onPressed: () {
+                themeNotifier.toggleTheme();
+              },
+              child: const Text('切换主题'),
+            ),
+          ],
+        ),
       ),
     );
   }
