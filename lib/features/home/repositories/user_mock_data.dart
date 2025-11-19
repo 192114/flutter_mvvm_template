@@ -4,11 +4,6 @@ class UserMockData {
   // 这是私有的构造函数 不可以实例化
   UserMockData._();
 
-  // 模拟网络延迟的方法
-  static Future<void> delay([int millseconds = 500]) {
-    return Future.delayed(Duration(milliseconds: millseconds));
-  }
-
   // mock 数据
   static List<UserModel> get users => [
     const UserModel(id: '1', name: '张三', email: 'zhangsan@example.com'),

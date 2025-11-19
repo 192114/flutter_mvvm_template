@@ -1,12 +1,8 @@
+import 'package:flutter_mvvm_template/core/network/exceptions.dart';
 import 'package:flutter_mvvm_template/features/auth/models/auth_model.dart';
 
 class AuthMockData {
   AuthMockData._();
-
-  // 模拟网络延迟
-  static Future<void> delay([int milliseconds = 800]) {
-    return Future.delayed(Duration(milliseconds: milliseconds));
-  }
 
   // 模拟用户数据库
   static final Map<String, Map<String, dynamic>> _users = {
@@ -41,16 +37,14 @@ class AuthMockData {
 
   // 模拟登录
   static Future<LoginResponse> login(String username, String password) async {
-    await delay();
-
     if (!_users.containsKey(username)) {
-      throw Exception('用户名不存在');
+      throw const AppException('用户名不存在', 404);
     }
 
     final userData = _users[username]!;
 
     if (userData['password'] != password) {
-      throw Exception('密码错误');
+      throw const AppException('密码错误', 401);
     }
 
     // 生成模拟token

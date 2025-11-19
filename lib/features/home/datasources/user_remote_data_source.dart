@@ -15,6 +15,9 @@ class UserRemoteDataSource {
     return data;
     } on DioException catch (e, stackTrace) {
       AppLogger.e('获取用户列表失败: ${e.message}', stackTrace);
+      if (e.error is AppException) {
+        throw e.error as AppException;
+      }
       throw AppException('获取用户列表失败: ${e.message}', e.response?.statusCode);
     } catch (e, stackTrace) {
       AppLogger.e('数据解析失败: $e', stackTrace);
