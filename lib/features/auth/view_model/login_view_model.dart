@@ -1,10 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter_mvvm_template/core/storage/token_storage.dart';
+import 'package:flutter_mvvm_template/features/auth/models/auth_model.dart';
+import 'package:flutter_mvvm_template/features/auth/repositories/auth_repository_impl.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../../../data/models/auth_model.dart';
-import '../../../data/repositories/auth_repository_impl.dart';
 
 final loginNotifierProvider =
     AsyncNotifierProvider<LoginNotifier, LoginResponse?>(LoginNotifier.new);

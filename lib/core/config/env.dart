@@ -1,4 +1,4 @@
-import '../utils/logger.dart';
+import 'package:flutter_mvvm_template/core/utils/logger.dart';
 
 /// mock: Mock环境用于本地开发和测试
 /// dev: 开发环境

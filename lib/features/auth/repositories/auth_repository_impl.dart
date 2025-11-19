@@ -1,8 +1,7 @@
 import 'package:flutter_mvvm_template/core/config/env.dart';
-import 'package:flutter_mvvm_template/data/models/auth_model.dart';
-
-import 'auth_repository.dart';
-import 'auth_repository_mock.dart';
+import 'package:flutter_mvvm_template/features/auth/models/auth_model.dart';
+import 'package:flutter_mvvm_template/features/auth/repositories/auth_repository.dart';
+import 'package:flutter_mvvm_template/features/auth/repositories/auth_repository_mock.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AuthRepositoryImpl implements AuthRepository {

@@ -1,9 +1,8 @@
-import 'package:go_router/go_router.dart';
+import 'package:flutter_mvvm_template/core/storage/token_storage.dart';
+import 'package:flutter_mvvm_template/features/auth/view/login_page.dart';
+import 'package:flutter_mvvm_template/features/home/view/home_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../presentation/auth/view/login_page.dart';
-import '../presentation/home/view/home_page.dart';
-import '../core/storage/token_storage.dart';
+import 'package:go_router/go_router.dart';
 
 /// 路由路径常量
 class AppRoutes {

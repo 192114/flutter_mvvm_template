@@ -1,5 +1,5 @@
+import 'package:flutter_mvvm_template/core/config/env.dart';
 import 'package:logger/logger.dart';
-import '../config/env.dart';
 
 class AppLogger {
   static final Logger _logger = Logger(

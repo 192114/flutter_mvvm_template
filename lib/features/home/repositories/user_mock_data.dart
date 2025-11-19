@@ -1,4 +1,4 @@
-import '../models/user_model.dart';
+import 'package:flutter_mvvm_template/features/home/models/user_model.dart';
 
 class UserMockData {
   // 这是私有的构造函数 不可以实例化

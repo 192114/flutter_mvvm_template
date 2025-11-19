@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_template/app/router.dart';
+import 'package:flutter_mvvm_template/core/theme/theme.dart';
+import 'package:flutter_mvvm_template/core/theme/theme_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'router.dart';
-
-import '../core/theme/theme.dart';
-import '../core/theme/theme_provider.dart';
 
 class MainApp extends ConsumerWidget {
   const MainApp({super.key});

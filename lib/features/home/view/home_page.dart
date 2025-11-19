@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_template/core/theme/theme_provider.dart';
+import 'package:flutter_mvvm_template/features/home/view_model/home_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../core/theme/theme_provider.dart';
-
-import '../view_model/home_view_model.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});

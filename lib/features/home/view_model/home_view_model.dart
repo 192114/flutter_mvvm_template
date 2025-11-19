@@ -1,6 +1,6 @@
+import 'package:flutter_mvvm_template/features/home/models/user_model.dart';
+import 'package:flutter_mvvm_template/features/home/repositories/user_repository_impl.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../data/repositories/user_repository_impl.dart';
-import '../../../data/models/user_model.dart';
 
 // 可创建多个独立的provider
 final usersProvider = AsyncNotifierProvider<UsersNotifier, List<UserModel>>(UsersNotifier.new);

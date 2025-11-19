@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_template/app/app.dart';
+import 'package:flutter_mvvm_template/core/config/env.dart';
+import 'package:flutter_mvvm_template/core/provider/shared_preferences_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'app/app.dart';
-import 'core/config/env.dart';
-import 'core/provider/shared_preferences_provider.dart';
 
 void main() async {
   // 初始化了消息循环和其他基础设施，这样你就可以创建和交互 Future 和 Stream 等。

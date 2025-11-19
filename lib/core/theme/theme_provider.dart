@@ -1,6 +1,6 @@
-import '../storage/theme_storage.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_template/core/storage/theme_storage.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ThemeModeNotifier extends Notifier<ThemeMode> {
   late final ThemeStorage _themeStorage;

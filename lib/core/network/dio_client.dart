@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_mvvm_template/core/config/env.dart';
+import 'package:flutter_mvvm_template/core/network/exceptions.dart';
 import 'package:flutter_mvvm_template/core/storage/token_storage.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import '../config/env.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'exceptions.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 final dioProvider = Provider<Dio>((ref) {
   final dio = Dio(

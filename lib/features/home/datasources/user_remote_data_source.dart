@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import '../models/user_model.dart';
-import '../../core/network/exceptions.dart';
-import '../../core/utils/logger.dart';
+import 'package:flutter_mvvm_template/core/network/exceptions.dart';
+import 'package:flutter_mvvm_template/core/utils/logger.dart';
+import 'package:flutter_mvvm_template/features/home/models/user_model.dart';
 
 class UserRemoteDataSource {
   final Dio dio;

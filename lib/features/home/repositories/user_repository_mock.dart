@@ -1,7 +1,6 @@
-// lib/data/repositories/user_repository_mock.dart
-import '../models/user_model.dart';
-import '../mock/user_mock_data.dart';
-import 'user_repository.dart';
+import 'package:flutter_mvvm_template/features/home/models/user_model.dart';
+import 'package:flutter_mvvm_template/features/home/repositories/user_mock_data.dart';
+import 'package:flutter_mvvm_template/features/home/repositories/user_repository.dart';
 
 /// 用户仓储 Mock 实现
 class UserRepositoryMock implements UserRepository {
